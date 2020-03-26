@@ -1,0 +1,21 @@
+﻿<Page x:Class="FunctionTestApp.Pages.ImageRelation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FunctionTestApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ImageRelation">
+
+    <Grid Background="White">
+        <Button x:Name="OpenButton" Content="Открыть" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="123" Height="37" Click="OpenButton_Click"/>
+        <Label x:Name="WidthLabel" Content="" HorizontalAlignment="Left" Margin="336,10,0,0" VerticalAlignment="Top" Height="38" Width="454" FontSize="16"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="308">
+            <Image x:Name="TestImage"/>
+        </Border>
+        <Label x:Name="HeigthLabel" Content="" HorizontalAlignment="Left" Margin="336,72,0,0" VerticalAlignment="Top" Height="38" Width="454" FontSize="16"/>
+        <Label x:Name="LengthLabel" Content="" HorizontalAlignment="Left" Margin="336,115,0,0" VerticalAlignment="Top" Height="38" Width="454" FontSize="16"/>
+
+    </Grid>
+</Page>

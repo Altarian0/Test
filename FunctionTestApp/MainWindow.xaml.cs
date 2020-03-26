@@ -24,8 +24,7 @@ namespace FunctionTestApp
         public MainWindow()
         {
             InitializeComponent();
-            ImageSortPage imageSortPage = new ImageSortPage();
-            MainFrame.Navigate(imageSortPage);
+            MainFrame.Navigate(new ChartDrawTest());
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

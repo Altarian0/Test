@@ -202,16 +202,27 @@ namespace FunctionTestApp.Pages
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            //Рендерим грид
+            RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)this.MainGrid.Width,
+                                                                           (int)this.MainGrid.Height,
+                                                                           96, 96, 
+                                                                           PixelFormats.Pbgra32);
+            renderTargetBitmap.Render(this.MainGrid);
+            
+            //Кодируем в изображение
+            JpegBitmapEncoder bitmapEncoder = new JpegBitmapEncoder();
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+
+            //Выбираем путь сохранения
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Image files (*.jpg)|*.jpg";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            saveFileDialog.Filter = "Save format (*.jpg)|*.jpg|" +
+                                    "Save format (*.png)|*.png";
+            saveFileDialog.ShowDialog();
+            
+            //Создаем файл и сохраняем в нем изображение
+            using (FileStream stream = File.Create(saveFileDialog.FileName))
             {
-                RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)this.MainGrid.Width, (int)this.MainGrid.Height, 96, 96, PixelFormats.Pbgra32);
-                renderTargetBitmap.Render(MainGrid);
-                JpegBitmapEncoder jpegBitmapEncoder = new JpegBitmapEncoder();
-                jpegBitmapEncoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
-                using (FileStream stream = File.Create(saveFileDialog.FileName))
-                    jpegBitmapEncoder.Save(stream);
+                bitmapEncoder.Save(stream);
             }
         }
     }
