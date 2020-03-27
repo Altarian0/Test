@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -62,6 +63,8 @@ namespace FunctionTestApp.Pages
             };
             saveFileDialog.ShowDialog();
 
+            StringBuilder stringBuilder = new StringBuilder();
+
             using (FileStream stream = File.Create(saveFileDialog.FileName))
             {
                 using (StreamWriter writer = new StreamWriter(stream))
@@ -72,11 +75,21 @@ namespace FunctionTestApp.Pages
                         {
                             writer.WriteLine(item.Id + "," + item.Name + "," + item.LastName + "," + item.CountryCode + "," + item.Gender);
                         }
+
+                        stringBuilder.AppendLine($"Были выгружены данные волонтеров с кодом страны {ExportComboBox.Text}.");;
+                    }
+                    else
+                    {
+                        foreach (var item in volunteers)
+                        {
+                            writer.WriteLine(item.Id + "," + item.Name + "," + item.LastName + "," + item.CountryCode + "," + item.Gender);
+                        }
+                        stringBuilder.AppendLine($"Были выгружены данные всех волонтеров."); ;
+
                     }
                 }
             }
-
-
+            System.Windows.MessageBox.Show(stringBuilder.ToString());
         }
     }
 }

@@ -24,7 +24,7 @@ namespace FunctionTestApp
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ChartDrawTest());
+            MainFrame.Navigate(new StartPage());
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -33,6 +33,15 @@ namespace FunctionTestApp
             {
                 e.Cancel = true;
             }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void WindowsClose_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -60,7 +60,7 @@ namespace FunctionTestApp.Pages
                 if (FromDatePicker.SelectedDate is DateTime fromDate &&
                     ToDatePicker.SelectedDate is DateTime toDate)
                 {
-                    foreach (var contract in DBHelper.GetContext().Contract.Where(n => n.Date > fromDate && n.Date < toDate).ToList())
+                    foreach (var contract in contracts.Where(n => n.Date > fromDate && n.Date < toDate).ToList())
                     {
                         currentSeries.Points.AddXY(contract.Date,
                                                    contract.ContractTotalPrice);

@@ -24,5 +24,10 @@ namespace FunctionTestApp.Pages
         {
             InitializeComponent();
         }
+
+        private void WindowsClose_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new WindowsClosePage());
+        }
     }
 }

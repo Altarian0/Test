@@ -9,6 +9,22 @@
       Title="StartPage">
 
     <Grid Background="White">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            
+            <Button x:Name="WindowsClose" Content="WindowsClose" HorizontalAlignment="Center" Margin="16,0,16,10" VerticalAlignment="Bottom" Width="128" Height="26" Click="WindowsClose_Click"/>
+        </Grid>
     </Grid>
 </Page>
